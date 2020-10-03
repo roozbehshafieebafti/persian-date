@@ -1,0 +1,27 @@
+{
+  "name": "persian-date",
+  "version": "1.0.0",
+  "description": "this package converts persian date to gregorian date",
+  "main": "index.ts",
+  "scripts": {
+    "test": "jest --config jestconfig.json --watchAll",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json"
+  },
+  "repository": "https://github.com/roozbehshafieebafti/persian-date.git",
+  "author": "roozbeh <roozbehp.shafiee@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^26.0.14",
+    "jest": "^26.4.2",
+    "prettier": "^2.1.2",
+    "ts-jest": "^26.4.1",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^4.0.3"
+  },
+  "files": [
+    "lib/**/*"
+  ]
+}
