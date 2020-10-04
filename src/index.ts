@@ -1,22 +1,17 @@
-
-
-
 class PersainDate {
+      getDay() {}
 
-    getDay(){}
+      getMonth() {}
 
-    getMonth(){}
+      getYear() {}
 
-    getYear(){}
+      getWeek() {}
 
-    getWeek(){}
+      getNumeric() {}
 
-    getNumeric(){}
+      getFull(date: string, type: 'fa' | 'en') {}
 
-    getFull(){}
-
-    convert(){}
+      convert() {}
 }
-
 
 export default PersainDate;
