@@ -11,10 +11,10 @@ export function dateSplicer(date: string): OutPut {
             miliSecond: 0,
       };
 
-      if(!date.match(/[0-9]+/g)){
+      if (!date.match(/[0-9]+/g)) {
             return result;
       }
-      
+
       // get data from input
       let [year, month, day, hour, minute, second, miliSecond] = date.match(/[0-9]+/g);
       /**

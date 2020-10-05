@@ -64,4 +64,16 @@ describe('test date splicer function', () => {
                   miliSecond: 0,
             });
       });
+
+      it('date splicer functional test 6', () => {
+            expect(dateSplicer('1339/9/09T12:45:37.32 PM')).toStrictEqual({
+                  year: 1339,
+                  month: 9,
+                  day: 9,
+                  hour: 12,
+                  minute: 45,
+                  second: 37,
+                  miliSecond: 32,
+            });
+      });
 });
