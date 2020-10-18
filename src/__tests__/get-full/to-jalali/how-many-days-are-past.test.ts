@@ -32,5 +32,7 @@ describe('test howManyDaysArePast', () => {
         expect(howManyDaysArePast(2019,10,18)).toBe(291)
         expect(howManyDaysArePast(2019,11,19)).toBe(323)
         expect(howManyDaysArePast(2019,12,11)).toBe(345)
+        expect(howManyDaysArePast(1994,4,24)).toBe(114)
+        expect(howManyDaysArePast(2020,4,23)).toBe(114)
     });
 });
