@@ -161,5 +161,11 @@ describe('spring calculation group test', () => {
             day: 11
         });
 
+        expect(springCalculation(2019,365)).toStrictEqual({
+            year: 1398,
+            month: 10,
+            day: 10
+        });
+
     })
 });

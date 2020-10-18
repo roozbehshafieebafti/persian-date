@@ -1,5 +1,5 @@
 
-export function springCalculation(gYear:number,days:number){
+export function springCalculation(gYear:number,days:number): output{
 
     let year : number = 0,
         month: number = 0, 
@@ -36,4 +36,11 @@ export function springCalculation(gYear:number,days:number){
     }
 
     return { year, month, day}
+}
+
+
+interface output{
+    year:number,
+    month:number, 
+    day:number
 }
