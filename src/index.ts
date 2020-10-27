@@ -1,3 +1,6 @@
+import GetFull, {getFullOutPut} from './get-full/index';
+
+
 class PersainDate {
       getDay() {}
 
@@ -9,7 +12,9 @@ class PersainDate {
 
       getNumeric() {}
 
-      getFull(date: string, type: 'fa' | 'en') {}
+      getFull(date: string, type: 'fa' | 'en'):getFullOutPut{
+            return GetFull(date,type);
+      }
 
       convert() {}
 }
