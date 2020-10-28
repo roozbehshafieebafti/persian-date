@@ -2,7 +2,7 @@ import { toJalali } from './to-jalali/to-jalali';
 
 function getFull(date: string, type: 'fa' | 'en'): getFullOutPut {
       if (type === 'fa') {
-            let { day, month, year, hour, minute, second , miliSecond } = toJalali(date);
+            let { day, month, year, hour, minute, second, miliSecond } = toJalali(date);
             return {
                   year,
                   month,
@@ -44,6 +44,5 @@ export interface getFullOutPut {
       second: number;
       millisecond: number;
 }
-
 
 export default getFull;

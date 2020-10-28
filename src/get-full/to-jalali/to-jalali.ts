@@ -13,15 +13,15 @@ export function toJalali(date: string): outPut {
                   hour,
                   minute,
                   second,
-                  miliSecond
-            }
+                  miliSecond,
+            };
       } else {
             return {
                   ...springCalculation(year, Days),
                   hour,
                   minute,
                   second,
-                  miliSecond
+                  miliSecond,
             };
       }
 }
