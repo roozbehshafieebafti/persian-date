@@ -5,40 +5,61 @@ import { calculateMonthAndDayInOrdinaryYear } from './calculate-month-and-day-in
 import { calculateYear } from './calculate-year';
 import { howManyDaysArePast } from './how-many-days-are-past';
 import { howManyDaysArePastFromGregorian } from './how-many-days-are-past-from-gregorian';
+import { gregorianValidation } from '../validation/gregorian-validation';
 
-export function toGregorian(date: string):output {
+export function toGregorian(date: string): output {
       let { year, month, day, hour, minute, second, miliSecond } = dateSplicer(date);
-      let JDays = howManyDaysArePast(month, day);
-      let GDays = howManyDaysArePastFromGregorian(JDays, year);
 
-      let GYear =calculateYear(year,JDays);
-      let MonthAndDay;
-      if(isLeap(GYear)){
-            MonthAndDay= calculateMonthAndDayInLeapYear(GDays);
+      let { staus, YEAR, MONTH, DAY, HOUR, MINUTE, SECOND, MILISECOND } = gregorianValidation(
+            year,
+            month,
+            day,
+            hour,
+            minute,
+            second,
+            miliSecond,
+      );
 
+      if(!staus){
+            return {
+                  year: 0,
+                  month: 0,
+                  day: 0,
+                  hour: 0,
+                  minute: 0,
+                  second: 0,
+                  miliSecond: 0,
+            };
       }
       else{
-            MonthAndDay = calculateMonthAndDayInOrdinaryYear(GDays);
-      }
+            let JDays = howManyDaysArePast(MONTH, DAY);
+            let GDays = howManyDaysArePastFromGregorian(JDays, YEAR);
 
-      return {
-            year: GYear,
-            month: MonthAndDay.month,
-            day: MonthAndDay.day,
-            hour, 
-            minute, 
-            second, 
-            miliSecond
-      }
+            let GYear = calculateYear(YEAR, JDays);
+            let MonthAndDay;
+            if (isLeap(GYear)) {
+                  MonthAndDay = calculateMonthAndDayInLeapYear(GDays);
+            } else {
+                  MonthAndDay = calculateMonthAndDayInOrdinaryYear(GDays);
+            }
+            return {
+                  year: GYear,
+                  month: MonthAndDay.month,
+                  day: MonthAndDay.day,
+                  hour: HOUR,
+                  minute: MINUTE,
+                  second: SECOND,
+                  miliSecond: MILISECOND,
+            };
+      }      
 }
 
-
-interface output{
-      year:number;
-      month:number;
-      day:number;
-      hour:number; 
-      minute:number; 
-      second:number; 
-      miliSecond:number
+interface output {
+      year: number;
+      month: number;
+      day: number;
+      hour: number;
+      minute: number;
+      second: number;
+      miliSecond: number;
 }

@@ -218,4 +218,37 @@ describe('toJalali group test', () => {
             expect(second).toBe(15);
             expect(miliSecond).toBe(800);
       });
+
+      it('functional test with hour 1', () => {
+            let { miliSecond, second, minute, hour, year, month, day } = toJalali('600/3/21_15:13:15.800');
+            expect(year).toBe(0);
+            expect(month).toBe(0);
+            expect(day).toBe(0);
+            expect(hour).toBe(0);
+            expect(minute).toBe(0);
+            expect(second).toBe(0);
+            expect(miliSecond).toBe(0);
+      });
+
+      it('functional test with hour 2', () => {
+            let { miliSecond, second, minute, hour, year, month, day } = toJalali('2020/3/21_25:13:15.800');
+            expect(year).toBe(1399);
+            expect(month).toBe(1);
+            expect(day).toBe(2);
+            expect(hour).toBe(0);
+            expect(minute).toBe(13);
+            expect(second).toBe(15);
+            expect(miliSecond).toBe(800);
+      });
+
+      it('functional test with hour 3', () => {
+            let { miliSecond, second, minute, hour, year, month, day } = toJalali('2020-10-29T05:03:35.462Z');
+            expect(year).toBe(1399);
+            expect(month).toBe(8);
+            expect(day).toBe(8);
+            expect(hour).toBe(5);
+            expect(minute).toBe(3);
+            expect(second).toBe(35);
+            expect(miliSecond).toBe(462);
+      });
 });
