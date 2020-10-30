@@ -40,7 +40,20 @@ class PersainDate {
             return year;
       }
 
-      getWeek() {}
+      getDayName() {}
+
+      /**
+       *this function returns month's name after convention
+       *
+       * @param {string} date
+       * @param {('fa' | 'en')} type
+       * @returns {string}
+       * @memberof PersainDate
+       */
+      getMonthName(date: string, type: 'fa' | 'en'): string {
+            let { monthName } =  GetFull(date, type);
+            return monthName;
+      }
 
       getNumeric() {}
 
