@@ -6,19 +6,21 @@ describe('toGregorian of the group', () => {
       });
 
       it('functional test 1', () => {
-            let { year, month, day } = toGregorian('1371/08/26');
+            let { year, month, day, numeric } = toGregorian('1371/08/26T20:30:00.0');
 
             expect(year).toBe(1992);
             expect(month).toBe(11);
             expect(day).toBe(16);
+            expect(numeric).toBe(721945800000)
       });
 
       it('functional test 2', () => {
-            let { year, month, day } = toGregorian('1375/03/27');
+            let { year, month, day, numeric } = toGregorian('1375/03/27');
 
             expect(year).toBe(1996);
             expect(month).toBe(6);
             expect(day).toBe(16);
+            expect(numeric).toBe(834883200000);
       });
 
       it('functional test 3', () => {
@@ -76,7 +78,7 @@ describe('toGregorian of the group', () => {
       //===========================================================================================================================================================================================================================================================================================================================================
 
       it(' functional test 9', () => {
-            let { year, month, day, hour, minute, second, miliSecond } = toGregorian('1399-4-18T03:12:40.342Z');
+            let { year, month, day, hour, minute, second, miliSecond, numeric } = toGregorian('1399-4-18T03:12:40.342Z');
             expect(year).toBe(2020);
             expect(month).toBe(7);
             expect(day).toBe(8);
@@ -85,6 +87,7 @@ describe('toGregorian of the group', () => {
             expect(minute).toBe(12);
             expect(second).toBe(40);
             expect(miliSecond).toBe(342);
+            expect(numeric).toBe(1594177960342);
       });
 
       it(' functional test 10', () => {

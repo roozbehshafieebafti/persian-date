@@ -4,6 +4,7 @@ import { howManyDaysArePast } from './how-many-days-are-past';
 import { springCalculation } from './spring-calculation';
 import { winterCalculation } from './winter-calculation';
 import { jalaliValidation } from '../validation/jalali-validation';
+import { getNumeric } from '../getNumeric';
 
 export function toJalali(date: string): outPut {
       let { year, month, day, hour, minute, second, miliSecond } = dateSplicer(date);
@@ -27,9 +28,11 @@ export function toJalali(date: string): outPut {
                   minute: 0,
                   second: 0,
                   miliSecond: 0,
+                  numeric: 0
             };
       } else {
             let Days = howManyDaysArePast(YEAR, MONTH, DAY);
+            let NUMERIC = getNumeric(YEAR, MONTH, DAY, HOUR, MINUTE, SECOND, MILISECOND);
             if (inWinter(Days)) {
                   return {
                         ...winterCalculation(YEAR, Days),
@@ -37,6 +40,7 @@ export function toJalali(date: string): outPut {
                         minute: MINUTE,
                         second: SECOND,
                         miliSecond: MILISECOND,
+                        numeric: NUMERIC
                   };
             } else {
                   return {
@@ -45,6 +49,7 @@ export function toJalali(date: string): outPut {
                         minute: MINUTE,
                         second: SECOND,
                         miliSecond: MILISECOND,
+                        numeric: NUMERIC
                   };
             }
       }
@@ -58,4 +63,5 @@ interface outPut {
       minute: number;
       second: number;
       miliSecond: number;
+      numeric: number;
 }

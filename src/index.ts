@@ -55,7 +55,18 @@ class PersainDate {
             return monthName;
       }
 
-      getNumeric() {}
+      /**
+       *this function returns Unix time - from 1970-01-01
+       *
+       * @param {string} date
+       * @param {('fa' | 'en')} type
+       * @returns {number}
+       * @memberof PersainDate
+       */
+      getNumeric(date: string, type: 'fa' | 'en'):number {
+            let { numeric } =  GetFull(date, type);
+            return numeric;
+      }
 
       /**
        * get the full information after coverting the date

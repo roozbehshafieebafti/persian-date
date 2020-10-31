@@ -6,6 +6,7 @@ import { calculateYear } from './calculate-year';
 import { howManyDaysArePast } from './how-many-days-are-past';
 import { howManyDaysArePastFromGregorian } from './how-many-days-are-past-from-gregorian';
 import { gregorianValidation } from '../validation/gregorian-validation';
+import { getNumeric } from '../getNumeric';
 
 export function toGregorian(date: string): output {
       let { year, month, day, hour, minute, second, miliSecond } = dateSplicer(date);
@@ -29,12 +30,12 @@ export function toGregorian(date: string): output {
                   minute: 0,
                   second: 0,
                   miliSecond: 0,
+                  numeric: 0
             };
       }
       else{
             let JDays = howManyDaysArePast(MONTH, DAY);
             let GDays = howManyDaysArePastFromGregorian(JDays, YEAR);
-
             let GYear = calculateYear(YEAR, JDays);
             let MonthAndDay;
             if (isLeap(GYear)) {
@@ -42,6 +43,7 @@ export function toGregorian(date: string): output {
             } else {
                   MonthAndDay = calculateMonthAndDayInOrdinaryYear(GDays);
             }
+            let numeric = getNumeric(GYear, MonthAndDay.month, MonthAndDay.day, HOUR, MINUTE, SECOND, MILISECOND);
             return {
                   year: GYear,
                   month: MonthAndDay.month,
@@ -50,6 +52,7 @@ export function toGregorian(date: string): output {
                   minute: MINUTE,
                   second: SECOND,
                   miliSecond: MILISECOND,
+                  numeric
             };
       }      
 }
@@ -62,4 +65,5 @@ interface output {
       minute: number;
       second: number;
       miliSecond: number;
+      numeric: number;
 }

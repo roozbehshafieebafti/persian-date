@@ -5,7 +5,7 @@ import { getGregorianMonthName } from '../get-full/month-name/get-gregorian-mont
 
 function getFull(date: string, type: 'fa' | 'en'): getFullOutPut {
       if (type === 'fa') {
-            let { day, month, year, hour, minute, second, miliSecond } = toJalali(date);
+            let { day, month, year, hour, minute, second, miliSecond, numeric } = toJalali(date);
             let monthName = getPersianMonthName(month);
             return {
                   year,
@@ -15,10 +15,11 @@ function getFull(date: string, type: 'fa' | 'en'): getFullOutPut {
                   minute,
                   second,
                   millisecond: miliSecond,
-                  monthName
+                  monthName,
+                  numeric
             };
       } else if (type === 'en') {
-            let { year, month, day, hour, minute, second, miliSecond } = toGregorian(date);
+            let { year, month, day, hour, minute, second, miliSecond, numeric } = toGregorian(date);
             let monthName = getGregorianMonthName(month);
             return {
                   year,
@@ -28,7 +29,8 @@ function getFull(date: string, type: 'fa' | 'en'): getFullOutPut {
                   minute,
                   second,
                   millisecond: miliSecond,
-                  monthName
+                  monthName,
+                  numeric
             };
       } else {
             return {
@@ -39,7 +41,8 @@ function getFull(date: string, type: 'fa' | 'en'): getFullOutPut {
                   minute: 0,
                   second: 0,
                   millisecond: 0,
-                  monthName: ""
+                  monthName: "",
+                  numeric: 0
             };
       }
 }
@@ -52,6 +55,7 @@ export interface getFullOutPut {
       minute: number;
       second: number;
       millisecond: number;
+      numeric: number;
       monthName: string;
 }
 
