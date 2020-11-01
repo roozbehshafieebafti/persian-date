@@ -1,4 +1,5 @@
 import GetFull, { getFullOutPut } from './get-full/index';
+import Convert from './convert/index';
 
 class PersainDate {
       /**
@@ -80,7 +81,18 @@ class PersainDate {
             return GetFull(date, type);
       }
 
-      convert() {}
+      /**
+       *this function will convert date to gregorian and jalali with custom output format
+       *
+       * @param {string} date
+       * @param {('fa' | 'en')} type
+       * @param {string} [format] -> y-m-d T h:min:sec.msec
+       * @returns
+       * @memberof PersainDate
+       */
+      convert(date: string, type: 'fa' | 'en', format?: string) {
+            return Convert(date,type,format);
+      }
 }
 
 export default PersainDate;
