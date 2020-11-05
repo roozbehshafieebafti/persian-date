@@ -24,11 +24,12 @@ describe('toGregorian of the group', () => {
       });
 
       it('functional test 3', () => {
-            let { year, month, day } = toGregorian('1399\\7\\19');
+            let { year, month, day, dayName } = toGregorian('1399\\7\\19');
 
             expect(year).toBe(2020);
             expect(month).toBe(10);
             expect(day).toBe(10);
+            expect(dayName).toBe(6);
       });
 
       it('functional test 4', () => {
@@ -40,24 +41,27 @@ describe('toGregorian of the group', () => {
       });
 
       it(' functional test 5', () => {
-            let { year, month, day } = toGregorian('1399 6 31 2020 09 21');
+            let { year, month, day, dayName } = toGregorian('1399 6 31 2020 09 21');
             expect(year).toBe(2020);
             expect(month).toBe(9);
             expect(day).toBe(21);
+            expect(dayName).toBe(1);
       });
 
       it(' functional test 6', () => {
-            let { year, month, day } = toGregorian('1399+5+26');
+            let { year, month, day, dayName } = toGregorian('1399+5+26');
             expect(year).toBe(2020);
             expect(month).toBe(8);
             expect(day).toBe(16);
+            expect(dayName).toBe(0);
       });
-
+      
       it(' functional test 7', () => {
-            let { year, month, day } = toGregorian('1399-05-01T20\\7\\22');
+            let { year, month, day, dayName } = toGregorian('1399-05-01');
             expect(year).toBe(2020);
             expect(month).toBe(7);
             expect(day).toBe(22);
+            expect(dayName).toBe(3);
       });
 
       it(' functional test 8', () => {

@@ -5,6 +5,7 @@ import { springCalculation } from './spring-calculation';
 import { winterCalculation } from './winter-calculation';
 import { jalaliValidation } from '../validation/jalali-validation';
 import { getNumeric } from '../getNumeric';
+import { getDay } from '../getDay';
 
 export function toJalali(date: string): outPut {
       let { year, month, day, hour, minute, second, miliSecond } = dateSplicer(date);
@@ -28,11 +29,13 @@ export function toJalali(date: string): outPut {
                   minute: 0,
                   second: 0,
                   miliSecond: 0,
-                  numeric: 0
+                  numeric: 0,
+                  dayName: -1
             };
       } else {
             let Days = howManyDaysArePast(YEAR, MONTH, DAY);
             let NUMERIC = getNumeric(YEAR, MONTH, DAY, HOUR, MINUTE, SECOND, MILISECOND);
+            let DAY_NAME = getDay(YEAR, MONTH, DAY, HOUR, MINUTE, SECOND, MILISECOND);
             if (inWinter(Days)) {
                   return {
                         ...winterCalculation(YEAR, Days),
@@ -40,7 +43,8 @@ export function toJalali(date: string): outPut {
                         minute: MINUTE,
                         second: SECOND,
                         miliSecond: MILISECOND,
-                        numeric: NUMERIC
+                        numeric: NUMERIC,
+                        dayName: DAY_NAME
                   };
             } else {
                   return {
@@ -49,7 +53,8 @@ export function toJalali(date: string): outPut {
                         minute: MINUTE,
                         second: SECOND,
                         miliSecond: MILISECOND,
-                        numeric: NUMERIC
+                        numeric: NUMERIC,
+                        dayName: DAY_NAME
                   };
             }
       }
@@ -64,4 +69,5 @@ interface outPut {
       second: number;
       miliSecond: number;
       numeric: number;
+      dayName: number;
 }

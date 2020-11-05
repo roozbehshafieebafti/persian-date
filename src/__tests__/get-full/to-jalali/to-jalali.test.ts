@@ -6,35 +6,39 @@ describe('toJalali group test', () => {
       });
 
       it(' functional test 1', () => {
-            let { year, month, day, numeric } = toJalali('2020/10/10');
+            let { year, month, day, numeric, dayName } = toJalali('2020/10/10');
             expect(year).toBe(1399);
             expect(month).toBe(7);
             expect(day).toBe(19);
             expect(numeric).toBe(1602288000000)
+            expect(dayName).toBe(6)
       });
       
       it(' functional test 2', () => {
-            let { year, month, day, numeric } = toJalali('2020-8-22');
+            let { year, month, day, numeric, dayName } = toJalali('2020-8-22');
             expect(year).toBe(1399);
             expect(month).toBe(6);
             expect(day).toBe(1);
             expect(numeric).toBe(1598054400000)
+            expect(dayName).toBe(6)
       });
       
       it(' functional test 3', () => {
-            let { year, month, day, numeric } = toJalali('2020 09 21');
+            let { year, month, day, numeric, dayName } = toJalali('2020 09 21');
             expect(year).toBe(1399);
             expect(month).toBe(6);
             expect(day).toBe(31);
             expect(numeric).toBe(1600646400000)
+            expect(dayName).toBe(1)
       });
       
       it(' functional test 4', () => {
-            let { year, month, day, numeric } = toJalali('2020+08+16T10:50:00.880Z');
+            let { year, month, day, numeric, dayName } = toJalali('2020+08+16T10:50:00.880Z');
             expect(year).toBe(1399);
             expect(month).toBe(5);
             expect(day).toBe(26);
             expect(numeric).toBe(1597575000880)
+            expect(dayName).toBe(0)
       });
 
       it(' functional test 5', () => {

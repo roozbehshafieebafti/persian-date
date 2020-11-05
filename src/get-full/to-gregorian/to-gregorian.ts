@@ -7,6 +7,7 @@ import { howManyDaysArePast } from './how-many-days-are-past';
 import { howManyDaysArePastFromGregorian } from './how-many-days-are-past-from-gregorian';
 import { gregorianValidation } from '../validation/gregorian-validation';
 import { getNumeric } from '../getNumeric';
+import { getDay } from '../getDay';
 
 export function toGregorian(date: string): output {
       let { year, month, day, hour, minute, second, miliSecond } = dateSplicer(date);
@@ -30,7 +31,8 @@ export function toGregorian(date: string): output {
                   minute: 0,
                   second: 0,
                   miliSecond: 0,
-                  numeric: 0
+                  numeric: 0,
+                  dayName: -1
             };
       }
       else{
@@ -44,6 +46,8 @@ export function toGregorian(date: string): output {
                   MonthAndDay = calculateMonthAndDayInOrdinaryYear(GDays);
             }
             let numeric = getNumeric(GYear, MonthAndDay.month, MonthAndDay.day, HOUR, MINUTE, SECOND, MILISECOND);
+            let DAY_NAME = getDay(GYear, MonthAndDay.month, MonthAndDay.day, HOUR, MINUTE, SECOND, MILISECOND);
+
             return {
                   year: GYear,
                   month: MonthAndDay.month,
@@ -52,7 +56,8 @@ export function toGregorian(date: string): output {
                   minute: MINUTE,
                   second: SECOND,
                   miliSecond: MILISECOND,
-                  numeric
+                  numeric,
+                  dayName: DAY_NAME
             };
       }      
 }
@@ -66,4 +71,5 @@ interface output {
       second: number;
       miliSecond: number;
       numeric: number;
+      dayName: number;
 }
