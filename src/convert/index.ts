@@ -12,7 +12,7 @@ function convert(date: string, type: 'fa' | 'en',format?: string): string{
     let HOUR:string   = hour   > 9 ? String(hour)   : "0"+String(hour);
     let MINUTE:string = minute > 9 ? String(minute) : "0"+String(minute);
     let SECOND:string = second > 9 ? String(second) : "0"+String(second);
-    let Milisecond:string = String(millisecond).length > 3 ? String(millisecond).slice(0,3) : String(millisecond);
+    let Milisecond:string = String(millisecond);
     let MILISECOND:string = Milisecond.length === 3 ? Milisecond : 
                                 Milisecond.length === 2 ? "0"+Milisecond :
                                     Milisecond.length === 1 ? "00"+Milisecond : "000";

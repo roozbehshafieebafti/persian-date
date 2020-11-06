@@ -49,4 +49,29 @@ describe('convert of the group', () => {
         let result = convert('2020 11 1 12:56:00','fa','y-M-d');
         expect(result).toBe('1399-آبان-11');
     });
+
+    it('functional test 10', () => {
+        let result = convert('2020 11 1 1:5:20','fa','h:min:sec');
+        expect(result).toBe('01:05:20');
+    });    
+
+    it('functional test 11', () => {
+        let result = convert('2020 11 1 1:5:00.3216','fa','h:min:sec msec');
+        expect(result).toBe('01:05:00 000');
+    });
+
+    it('functional test 12', () => {
+        let result = convert('2020 11 1 1:5:00.111','fa','h:min:sec msec');
+        expect(result).toBe('01:05:00 111');
+    });
+
+    it('functional test 13', () => {
+        let result = convert('2020 11 1 1:5:00.55','fa','h:min:sec msec');
+        expect(result).toBe('01:05:00 055');
+    });
+
+    it('functional test 14', () => {
+        let result = convert('2020 11 1 1:5:00.55','fa','h:min:sec msec');
+        expect(result).toBe('01:05:00 055');
+    });
 });

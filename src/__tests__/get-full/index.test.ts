@@ -6,11 +6,12 @@ describe('test group of getFull', () => {
       });
 
       it('functional test 1', () => {
-            let { year, month, day, monthName } = getFull('1992/11/16', 'fa');
+            let { year, month, day, monthName, dayName } = getFull('1992/11/16', 'fa');
             expect(year).toBe(1371);
             expect(month).toBe(8);
             expect(day).toBe(26);
-            expect(monthName).toBe("آبان")
+            expect(monthName).toBe("آبان");
+            expect(dayName).toBe("دوشنبه")
       });
 
       it('functional test 2', () => {
@@ -38,27 +39,30 @@ describe('test group of getFull', () => {
       });
 
       it('functional test 5', () => {
-            let { year, month, day, monthName } = getFull('1994/04/24', 'fa');
+            let { year, month, day, monthName, dayName } = getFull('1994/04/24', 'fa');
             expect(year).toBe(1373);
             expect(month).toBe(2);
             expect(day).toBe(4);
             expect(monthName).toBe("اُردیبهشت")
+            expect(dayName).toBe('یکشنبه')
       });
-
+      
       it('functional test 6', () => {
-            let { year, month, day, monthName } = getFull('1996/06/16', 'fa');
+            let { year, month, day, monthName, dayName } = getFull('1996/06/16', 'fa');
             expect(year).toBe(1375);
             expect(month).toBe(3);
             expect(day).toBe(27);
             expect(monthName).toBe("خرداد")
+            expect(dayName).toBe('یکشنبه')
       });
-
+      
       it('functional test 7', () => {
-            let { year, month, day, monthName } = getFull('2019/06/16', 'fa');
+            let { year, month, day, monthName, dayName } = getFull('2019/06/16', 'fa');
             expect(year).toBe(1398);
             expect(month).toBe(3);
             expect(day).toBe(26);
             expect(monthName).toBe("خرداد")
+            expect(dayName).toBe('یکشنبه')
       });
 
 
@@ -114,7 +118,7 @@ describe('test group of getFull', () => {
       });
 
       it('functional test 15', () => {
-            let { year, month, day, hour, minute, second, millisecond, monthName } = getFull('1373_2_4T1994/04/24', 'en');
+            let { year, month, day, hour, minute, second, millisecond, monthName, dayName } = getFull('1373_2_4T1994/04/24', 'en');
             expect(year).toBe(1994);
             expect(month).toBe(4);
             expect(day).toBe(24);
@@ -124,6 +128,7 @@ describe('test group of getFull', () => {
             expect(second).toBe(24);
             expect(millisecond).toBe(0);
             expect(monthName).toBe("April");
+            expect(dayName).toBe('Sunday');
       });
 
       it('functional test 16', () => {
@@ -135,11 +140,12 @@ describe('test group of getFull', () => {
       });
 
       it('functional test 17', () => {
-            let { year, month, day, monthName } = getFull('1398\\3\\26', 'en');
+            let { year, month, day, monthName, dayName } = getFull('1398\\3\\26', 'en');
             expect(year).toBe(2019);
             expect(month).toBe(6);
             expect(day).toBe(16);
             expect(monthName).toBe("June");
+            expect(dayName).toBe('Sunday');
       });
 
 

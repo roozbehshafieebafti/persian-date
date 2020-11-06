@@ -41,7 +41,18 @@ class PersainDate {
             return year;
       }
 
-      getDayName() {}
+      /**
+       *this function returns day's name
+       *
+       * @param {string} date
+       * @param {('fa' | 'en')} type
+       * @returns {string}
+       * @memberof PersainDate
+       */
+      getDayName(date: string, type: 'fa' | 'en'):string {
+            let { dayName } =  GetFull(date, type);
+            return dayName;
+      }
 
       /**
        *this function returns month's name after convention

@@ -2,11 +2,14 @@ import { toJalali } from './to-jalali/to-jalali';
 import { toGregorian } from './to-gregorian/to-gregorian';
 import { getPersianMonthName } from '../get-full/month-name/get-persian-month-name';
 import { getGregorianMonthName } from '../get-full/month-name/get-gregorian-month-name';
+import { gregorianDay } from './day-name/gregorian-day';
+import { persianDay } from './day-name/persian-day';
 
 function getFull(date: string, type: 'fa' | 'en'): getFullOutPut {
       if (type === 'fa') {
-            let { day, month, year, hour, minute, second, miliSecond, numeric } = toJalali(date);
+            let { day, month, year, hour, minute, second, miliSecond, numeric, dayName } = toJalali(date);
             let monthName = getPersianMonthName(month);
+            let day_name = persianDay(dayName);
             return {
                   year,
                   month,
@@ -16,11 +19,13 @@ function getFull(date: string, type: 'fa' | 'en'): getFullOutPut {
                   second,
                   millisecond: miliSecond,
                   monthName,
-                  numeric
+                  numeric,
+                  dayName: day_name
             };
       } else if (type === 'en') {
-            let { year, month, day, hour, minute, second, miliSecond, numeric } = toGregorian(date);
+            let { year, month, day, hour, minute, second, miliSecond, numeric, dayName } = toGregorian(date);
             let monthName = getGregorianMonthName(month);
+            let day_name = gregorianDay(dayName);
             return {
                   year,
                   month,
@@ -30,7 +35,8 @@ function getFull(date: string, type: 'fa' | 'en'): getFullOutPut {
                   second,
                   millisecond: miliSecond,
                   monthName,
-                  numeric
+                  numeric,
+                  dayName: day_name
             };
       } else {
             return {
@@ -42,7 +48,8 @@ function getFull(date: string, type: 'fa' | 'en'): getFullOutPut {
                   second: 0,
                   millisecond: 0,
                   monthName: "",
-                  numeric: 0
+                  numeric: 0,
+                  dayName: ""
             };
       }
 }
@@ -57,6 +64,7 @@ export interface getFullOutPut {
       millisecond: number;
       numeric: number;
       monthName: string;
+      dayName:string;
 }
 
 export default getFull;
