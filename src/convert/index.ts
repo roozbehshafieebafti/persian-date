@@ -4,7 +4,7 @@ function convert(date: string, type: 'fa' | 'en',format?: string): string{
     if(format === undefined || format === null || !format){
         format = 'y/m/d';
     }
-    let { year, month, day, hour, minute, second, millisecond, monthName } = GetFull(date,type);
+    let { year, month, day, hour, minute, second, millisecond, monthName, dayName } = GetFull(date,type);
 
     let YEAR:string   = String(year);
     let MONTH:string  = month  > 9 ? String(month)  : "0"+String(month);
@@ -25,7 +25,8 @@ function convert(date: string, type: 'fa' | 'en',format?: string): string{
     result = result.replace(/[yY]/,YEAR);
     result = result.replace(/[m]/,MONTH);
     result = result.replace(/[M]/,monthName);
-    result = result.replace(/[dD]/,DAY);
+    result = result.replace(/[d]/,DAY);
+    result = result.replace(/[D]/,dayName);
     result = result.replace(/[hH]/,HOUR);
 
     return result;

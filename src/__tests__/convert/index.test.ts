@@ -74,4 +74,9 @@ describe('convert of the group', () => {
         let result = convert('2020 11 1 1:5:00.55','fa','h:min:sec msec');
         expect(result).toBe('01:05:00 055');
     });
+
+    it('functional test 15', () => {
+        let result = convert('2020 11 8','fa','D d-M-y');
+        expect(result).toBe('یکشنبه 18-آبان-1399');
+    });
 });
