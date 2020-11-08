@@ -1,6 +1,6 @@
 {
   "name": "persian-date-converter",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "this package converts persian date to gregorian date",
   "main": "index.ts",
   "scripts": {
