@@ -1,5 +1,6 @@
 import GetFull, { getFullOutPut } from './get-full/index';
 import Convert from './convert/index';
+import { leap } from './leap';
 
 class PersainDate {
       /**
@@ -98,11 +99,33 @@ class PersainDate {
        * @param {string} date
        * @param {('fa' | 'en')} type
        * @param {string} [format] -> y-m-d T h:min:sec.msec
-       * @returns
+       * @returns {string}
        * @memberof PersainDate
        */
-      convert(date: string, type: 'fa' | 'en', format?: string) {
+      convert(date: string, type: 'fa' | 'en', format?: string):string {
             return Convert(date,type,format);
+      }
+      
+      /**
+       *this function determind the year is leap in jalali calendar on not
+       *
+       * @param {number} year
+       * @returns {(Boolean|null)}
+       * @memberof PersainDate
+       */
+      isPersianLeap(year: number):Boolean{
+            return leap(year,'fa');
+      }
+
+      /**
+       *this function determind the year is leap in Gregorian calendar on not
+       *
+       * @param {number} year
+       * @returns {(Boolean|null)}
+       * @memberof PersainDate
+       */
+      isGregorianLeap(year: number):Boolean{
+            return leap(year,'en');
       }
 }
 
